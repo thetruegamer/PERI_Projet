@@ -1,4 +1,4 @@
-# Projet PERI Sorbonne Université 2017/2018
+# Projet PERI Sorbonne Universités 2017/2018
 
 1.  L'Arduino envoie des données à une BDD sqlite3 **"en passant par le réseau sans fil"** donc j'imagine qu'on doit faire comme en TME : on se sert d'un PC pour lire les valeurs de l'Arduino et on envoie le tout à la BDD depuis le PC qui a lu. **TODO** un mail pour confirmer
 
@@ -18,7 +18,7 @@ Eventuellement on peut accepter des ordres envoyés depuis le site web pour affi
 - **/database** : 
 	- **LAUNCH_ME.sh** : Script pour initialiser la DB avec config.sql.
 	- **arduino_db.sqlt** Fichier contenant la db une fois le script lancé.
-## DOC : 
+## DOC 
 
 ### Sqlite
 

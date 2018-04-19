@@ -13,7 +13,7 @@ Miscellaneous :
 
 
 add_data.py :
-	fetch data from db -> TODO
+	fetch data from wireless network -> TODO
 	push data to db -> DONE
 
 server.py : 
@@ -22,7 +22,7 @@ server.py :
 
 send_datas.ino :
 	collect data -> DONE
-	send them -> TODO
+	send them through wireless network -> TODO
 
 Miscellaneous :
 	database config -> WiP, temporary version DONE
