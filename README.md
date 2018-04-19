@@ -9,9 +9,12 @@ Eventuellement on peut accepter des ordres envoyés depuis le site web pour affi
 
 ## Arborescence
 
-- **/arduino** : Code pour lire les valeurs et les stocker dans la DB.
-- **/server** : Serveur Flask qui tourne sur le RPi
-	-
+- **/arduino/send_datas.ino** : Code pour lire les valeurs des capteurs et les envoyer sur un réseau sans fil à déterminer (mail en cours).
+
+- **/server** :
+	- **add_data.py :** 2 rôles : récupérer les données sur le réseau sans fil, puis les ajouter à la DB
+	- **server.py :** récupère les données de la DB puis les mets sur le serveur
+	
 - **/database** : 
 	- **LAUNCH_ME.sh** : Script pour initialiser la DB avec config.sql.
 	- **arduino_db.sqlt** Fichier contenant la db une fois le script lancé.

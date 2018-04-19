@@ -1,0 +1,28 @@
+Raspberry : 
+	server :
+		fetch and push data to the database -> add_data.py
+		get datas from database and push them to the server so he prints them -> server.py
+		displays and stuff for the server -> html / css files
+
+Arduino :
+	collect data and send them through wireless network -> send_datas.ino
+
+Miscellaneous :
+	database config and storage
+
+
+
+add_data.py :
+	fetch data from db -> TODO
+	push data to db -> DONE
+
+server.py : 
+	get datas from db -> TODO
+	push them to the server -> TODO
+
+send_datas.ino :
+	collect data -> TODO
+	send them -> TODO
+
+Miscellaneous :
+	database config -> WiP, temporary version DONE
