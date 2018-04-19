@@ -14,7 +14,7 @@ Eventuellement on peut accepter des ordres envoyés depuis le site web pour affi
 - **/server** :
 	- **add_data.py :** 2 rôles : récupérer les données sur le réseau sans fil, puis les ajouter à la DB
 	- **server.py :** récupère les données de la DB puis les mets sur le serveur
-	
+	- **templates/** : fichiers HTML pour Flask
 - **/database** : 
 	- **LAUNCH_ME.sh** : Script pour initialiser la DB avec config.sql.
 	- **arduino_db.sqlt** Fichier contenant la db une fois le script lancé.

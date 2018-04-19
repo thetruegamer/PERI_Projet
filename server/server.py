@@ -1,16 +1,22 @@
-import sqlite3
-from flask import g
+from flask import Flask, render_template, request
+import sqlite3 as sql
+app = Flask(__name__)
 
-DATABASE = '../database/arduino_db.sqlt'
 
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
-    return db
+# it's a list for now, TODO transform the list into a graph (more HTML side than flask I think)
+@app.route('/list')
+def list():
 
-@app.teardown_appcontext
-def close_connection(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
+	# connect to the database
+	con = sql.connect("../database/arduino_db.sqlt")
+
+	# config the rows for the fetch later
+	con.row_factory = sql.Row
+	cur = con.cursor()
+
+	# the query can be changed but our db doesn't have irrelevant information for the user such as IDs so we select *
+	cur.execute("SELECT * FROM datas")
+	rows = cur.fetchall(); 
+
+	# "push" all fetched datas to the "list.html" page
+	return render_template("list.html",rows = rows)
