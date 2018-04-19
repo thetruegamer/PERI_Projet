@@ -11,7 +11,7 @@ Eventuellement on peut accepter des ordres envoyés depuis le site web pour affi
 
 - **/arduino** : Code pour lire les valeurs et les stocker dans la DB.
 - **/server** : Serveur Flask qui tourne sur le RPi
-	- 
+	-
 - **/database** : 
 	- **LAUNCH_ME.sh** : Script pour initialiser la DB avec config.sql.
 	- **arduino_db.sqlt** Fichier contenant la db une fois le script lancé.
