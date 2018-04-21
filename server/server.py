@@ -8,7 +8,7 @@ app = Flask(__name__)
 def list():
 
 	# connect to the database
-	con = sql.connect("../database/arduino_db.sqlt")
+	con = sql.connect("../database/arduino.db")
 
 	# config the rows for the fetch later
 	con.row_factory = sql.Row

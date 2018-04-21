@@ -1,5 +1,4 @@
 <!-- TODO transform the list into a nice graph -->
-
 <!doctype html>
 <html>
    <body>
@@ -7,17 +6,13 @@
       <table border = 1>
          <thead>
             <td>Date</td>
-            <td>Temperature</td>
-            <td>Humidite</td>
             <td>Luminosite</td>
          </thead>
          
          <!-- as long as there are values we list them -->
          {% for row in rows %}
             <tr>
-               <td>{{row["Dates"]}}</td>
-               <td>{{row["Temperature"]}}</td>
-               <td> {{ row["Humidite"]}}</td>
+               <td>{{row["Date"]}}</td>
                <td>{{row["Luminosite"]}}</td>	
             </tr>
          {% endfor %}
