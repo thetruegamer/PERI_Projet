@@ -1,7 +1,7 @@
 RPI?=20
 SRC=src
 APP=NRF24L01_base
-DST=nom1_nom2
+DST=levy-masson/projet
 
 CROSSDIR        = /users/enseig/franck/peri
 CROSS_COMPILE   = $(CROSSDIR)/arm-bcm2708hardfp-linux-gnueabi/bin/bcm2708hardfp-
@@ -9,7 +9,7 @@ CROSS_COMPILE   = $(CROSSDIR)/arm-bcm2708hardfp-linux-gnueabi/bin/bcm2708hardfp-
 INC=$(HOME)/rf24/include
 LIB=$(HOME)/rf24/lib
 CFLAGS=-Wall -Wfatal-errors -O2 -I$(INC)
-LDFLAGS=-L$(LIB) -lrf24
+LDFLAGS=-L$(LIB) -lrf24 -lsqlite3
 
 all: $(APP).x
 
