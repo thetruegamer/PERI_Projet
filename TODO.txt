@@ -12,8 +12,8 @@ Miscellaneous :
 
 
 
-add_data.py :
-	fetch data from wireless network -> TODO
+receive_data.cpp :
+	fetch data from wireless network -> TO TEST
 	push data to db -> DONE
 
 server.py : 
@@ -22,8 +22,8 @@ server.py :
 
 send_datas.ino :
 	collect data -> DONE
-	send them through wireless network -> TODO
+	send them through wireless network -> TO TEST
 
 Miscellaneous :
-	database config -> WiP, temporary version DONE
+	database config -> WiP, temporary version DONE might be subject to change
 	refactor everything so the config is transparent -> TODO
