@@ -2,8 +2,6 @@
 
 -- create a table with some relevant datas to be stored
 CREATE TABLE datas (
-	Dates date,
-	Temperature integer,
-	Humidite integer,
+	Date datetime default current_timestamp,
 	Luminosite integer
 );

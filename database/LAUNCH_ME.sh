@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sqlite3 arduino_db.sqlt < config.sql
+sqlite3 arduino.db < config.sql

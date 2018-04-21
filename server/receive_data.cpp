@@ -15,9 +15,8 @@ RF24 radio(15,8); // radio(CE,CS)
 
 byte addresses[][6] = {"0XXXX"};
 
-// values to insert to DB
+// value to insert to DB
 int luminosity;
-string date;
 
 // DB objects
 sqlite3 *db;
@@ -32,22 +31,18 @@ void setup() {
     radio.printDetails();
 }
 
-
 void loop() {
     cout << "." << flush;
 
     // read value from sensor
     radio.read(&luminosity, sizeof(luminosity));
 
-    // format date before inserting into db
-    stfrtime(date, sizeof(date), "%Y-%m-%d", std::chrono::system_clock::now());
-
     // form the query
-    sqlstatement = "INSERT INTO datas VALUES (" + date +", " + luminosity + ");"
+    sqlstatement = "INSERT INTO datas (Luminosite) VALUES (" + to_string(luminosity) + ");"
 
     if(sqlite3_open("../database/arduino.db", &db) == SQLITE_OK) {
         // prepare the query
-        sqlite3_prepare(db, sqlstatement.c_str, -1, &stmt, NULL);
+        sqlite3_prepare(db, sqlstatement.c_str(), -1, &stmt, NULL);
         //execute it
         sqlite3_step(stmt);
     }
