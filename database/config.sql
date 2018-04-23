@@ -2,6 +2,6 @@
 
 -- create a table with some relevant datas to be stored
 CREATE TABLE datas (
-	Date datetime default current_timestamp,
+	Date datetime DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME')),
 	Luminosite integer
 );
