@@ -1,11 +1,11 @@
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <unistd.h>
 #include <RF24/RF24.h>
-#include <ctime>
-#include <sqlite3.h>
+// #include <sqlite3.h>
 
 typedef uint8_t byte;
 
@@ -16,29 +16,50 @@ RF24 radio(15,8); // radio(CE,CS)
 byte addresses[][6] = {"0XXXX"};
 
 // value to insert to DB
-int luminosity;
+int luminosity = 42;
+stringstream ss_lum;
 
 // DB objects
-sqlite3 *db;
-sqlite3_stmt *stmt;
+// sqlite3 *db;
+// sqlite3_stmt *stmt;
 
 string sqlstatement;
 
 void setup() {
     radio.begin();
     radio.setPALevel(RF24_PA_LOW);
-    radio.openReadingPipe(addresses[0]);
+    radio.openReadingPipe(1, addresses[0]);
     radio.printDetails();
+    radio.startListening();
 }
 
 void loop() {
-    cout << "." << flush;
 
     // read value from sensor
-    radio.read(&luminosity, sizeof(luminosity));
+	if(radio.available()) {
+		radio.read(&luminosity, sizeof(luminosity));
+	}
+	
+	ofstream myfile;
+  	myfile.open("datas.csv", ios_base::app);
 
-    // form the query
-    sqlstatement = "INSERT INTO datas (Luminosite) VALUES (" + to_string(luminosity) + ");"
+	ss_lum << luminosity;
+ 	string str_lum = ss_lum.str();
+    str_lum += ";";
+
+	cout << str_lum;
+
+  	myfile << str_lum;
+  	// empty the string
+	ss_lum.str(string());
+//  	myfile.close();
+	
+
+
+	/* SQLITE3 config, will need a fix and a mail.
+	// form the query
+    sqlstatement = "INSERT INTO datas (Luminosite) VALUES (" + str_lum + ");";
+    //cout << sqlstatement;
 
     if(sqlite3_open("../database/arduino.db", &db) == SQLITE_OK) {
         // prepare the query
@@ -47,10 +68,14 @@ void loop() {
         sqlite3_step(stmt);
     }
     else
-        cout << "Failure opening database \n"
+        cout << "Failure opening database \n";
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+
+*/
+	sleep(1);
+
 }
 
 int main(int argc, char **argv)

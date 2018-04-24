@@ -12,11 +12,10 @@ byte addresses[][6] = {"0XXXX"};
 
 void setupRadio(void) {
   radio.begin();
-  radio.setRetries(15,15);
+//  radio.setRetries(15,15);
   radio.setPALevel(RF24_PA_LOW);
-  radio.openWritingPipe(1, addresses[0]);
+  radio.openWritingPipe(addresses[0]);
   radio.printDetails();
-  radio.stopListening();
 }
 
 void setup() {
@@ -24,7 +23,7 @@ void setup() {
   Serial.begin(9600);
 
   setupRadio();
-  period_in_milliseconds = 60000; // currently we read the value every minute
+  period_in_milliseconds = 1000; // currently we read the value every minute
 }
 
 void loop() {
@@ -37,5 +36,5 @@ void loop() {
   radio.write(&val, sizeof(val));
 
   // we wait before we read and send again
-  delay(period_in_milliseconds);
+  delay(1000);
 }
