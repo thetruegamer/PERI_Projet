@@ -20,8 +20,8 @@ int luminosity = 42;
 stringstream ss_lum;
 
 // DB objects
-// sqlite3 *db;
-// sqlite3_stmt *stmt;
+	sqlite3 *db;
+	sqlite3_stmt *stmt;
 
 string sqlstatement;
 
@@ -39,24 +39,12 @@ void loop() {
 	if(radio.available()) {
 		radio.read(&luminosity, sizeof(luminosity));
 	}
-	
-	ofstream myfile;
-  	myfile.open("datas.csv", ios_base::app);
 
 	ss_lum << luminosity;
  	string str_lum = ss_lum.str();
-    str_lum += ";";
 
-	cout << str_lum;
+  	ss_lum.str(string());
 
-  	myfile << str_lum;
-  	// empty the string
-	ss_lum.str(string());
-//  	myfile.close();
-	
-
-
-	/* SQLITE3 config, will need a fix and a mail.
 	// form the query
     sqlstatement = "INSERT INTO datas (Luminosite) VALUES (" + str_lum + ");";
     //cout << sqlstatement;
@@ -73,7 +61,6 @@ void loop() {
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
-*/
 	sleep(1);
 
 }

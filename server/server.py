@@ -20,3 +20,7 @@ def list():
 
 	# "push" all fetched datas to the "list.html" page
 	return render_template("list.html",rows = rows)
+
+
+if __name__ == "__main__":
+	app.run(host="", port=8000, debug=True)
