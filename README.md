@@ -1,11 +1,15 @@
 # Projet PERI Sorbonne Universités 2017/2018
 
-##Guide d'utilisation
+## Guide d'utilisation
 
+<<<<<<< HEAD
 ### Sur l'Arduino
 1. Uploader le code arduino/send_datas.ino sur un Arduino équipé d'un capteur de luminosité et d'un module NRF. 
 
 ###Sur le Raspberry
+=======
+### Sur le Raspberry
+>>>>>>> 0cc544f3468481ffb9c7456ecc26f41920bfcbef
 1. Uploader tout le dossier server/ ainsi que /database sur le raspberry.
 
 2. Se rendre dans /database et lancer le LAUNCH_ME.sh.
@@ -14,7 +18,15 @@
 
 4. Dans server/ exécuter "python server.py".
 
+<<<<<<< HEAD
 ###Tests
+=======
+### Sur l'Arduino
+1. Uploader le code arduino/send_datas.ino sur un Arduino équipé d'un capteur de luminosité et d'un module NRF. 
+
+
+### Tests
+>>>>>>> 0cc544f3468481ffb9c7456ecc26f41920bfcbef
 1. La base de données arduino.db devrait maintenant se remplir, vous pouvez le tester avec sqlite3.
 
 2. L'adresse "localhost:8000/graph" devrait afficher un graphique avec les valeurs contenues dans la base de données "arduino.db".
