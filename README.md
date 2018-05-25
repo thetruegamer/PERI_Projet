@@ -1,20 +1,34 @@
 # Projet PERI Sorbonne Universités 2017/2018
 
-1.  L'Arduino envoie des données à un Raspberry Pi via nRF24L01 qui les stocke dans une BDD sqlite3 
+##Guide d'utilisation
 
-2. Le Raspberry Pi héberge un serveur Web qui récupère et affiche les données sous forme de graphe etc. Le serveur est sous Flask.
+###Sur le Raspberry
+1. Uploader tout le dossier server/ ainsi que /database sur le raspberry.
 
-3. On a 20. Ne pas hésiter à ajouter des choses pertinentes au fur et à mesure : on peut commencer sans BDD, avec des tableaux et pas des beaux graphes.
-Eventuellement on peut accepter des ordres envoyés depuis le site web pour afficher des trucs sur l'écran oled
+2. Se rendre dans /database et lancer le LAUNCH_ME.sh.
+
+3. Dans server/, faire un make et lancer l'exécutable produit.
+
+4. Dans server/ exécuter "python server.py".
+
+### Sur l'Arduino
+1. Uploader le code arduino/send_datas.ino sur un Arduino équipé d'un capteur de luminosité et d'un module NRF. 
+
+
+###Tests
+1. La base de données arduino.db devrait maintenant se remplir, vous pouvez le tester avec sqlite3.
+
+2. L'adresse "localhost:5000/graph" devrait afficher un graphique avec les valeurs contenues dans la base de données "arduino.db".
 
 ## Arborescence
 
-- **/arduino/send_datas.ino** : Code pour lire les valeurs des capteurs et les envoyer sur un réseau sans fil à déterminer (mail en cours).
+- **/arduino/send_datas.ino** : Code pour lire les valeurs des capteurs et les envoyer via NRF.
 
 - **/server** :
-	- **receive_data.cpp :** 2 rôles : récupérer les données sur le réseau sans fil, puis les ajouter à la DB
-	- **server.py :** extrait les données de la DB puis les mets sur le serveur
+	- **receive_data.cpp :** 2 rôles : récupérer les données sur le réseau sans fil, puis les ajouter à la DB.
+	- **server.py :** extrait les données de la DB puis les envoie sur le serveur web.
 	- **templates/** : fichiers HTML pour Flask
+	- **static/** : fichiers js pour l'affichage graphique
 	
 - **/database** : 
 	- **LAUNCH_ME.sh** : Script pour initialiser la DB avec les paramètres trouvables dans **config.sql.**
