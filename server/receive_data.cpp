@@ -5,7 +5,7 @@
 #include <string>
 #include <unistd.h>
 #include <RF24/RF24.h>
-// #include <sqlite3.h>
+#include <sqlite3.h>
 
 typedef uint8_t byte;
 

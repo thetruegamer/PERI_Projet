@@ -2,6 +2,9 @@
 
 ##Guide d'utilisation
 
+### Sur l'Arduino
+1. Uploader le code arduino/send_datas.ino sur un Arduino équipé d'un capteur de luminosité et d'un module NRF. 
+
 ###Sur le Raspberry
 1. Uploader tout le dossier server/ ainsi que /database sur le raspberry.
 
@@ -11,15 +14,11 @@
 
 4. Dans server/ exécuter "python server.py".
 
-### Sur l'Arduino
-1. Uploader le code arduino/send_datas.ino sur un Arduino équipé d'un capteur de luminosité et d'un module NRF. 
-
-
 ###Tests
 1. La base de données arduino.db devrait maintenant se remplir, vous pouvez le tester avec sqlite3.
 
-2. L'adresse "localhost:5000/graph" devrait afficher un graphique avec les valeurs contenues dans la base de données "arduino.db".
-
+2. L'adresse "localhost:8000/graph" devrait afficher un graphique avec les valeurs contenues dans la base de données "arduino.db".
+**Si rien ne s'affiche** : l'adresse localhost est codée en dur dans le code de /templates/graph.html or sur les machines de la fac, le domaine localhost est remplacé par l'adresse du routeur. Il faut donc remplacer "localhost:8000/datas.json" par "132.227.102.36:80XX/datas.json" où XX est le numéro du Rpi.
 ## Arborescence
 
 - **/arduino/send_datas.ino** : Code pour lire les valeurs des capteurs et les envoyer via NRF.
@@ -27,7 +26,7 @@
 - **/server** :
 	- **receive_data.cpp :** 2 rôles : récupérer les données sur le réseau sans fil, puis les ajouter à la DB.
 	- **server.py :** extrait les données de la DB puis les envoie sur le serveur web.
-	- **templates/** : fichiers HTML pour Flask
+	- **templates/graph.html** : fichiers HTML pour Flask ** adresse codée en dur à modifier si necéssaire**
 	- **static/** : fichiers js pour l'affichage graphique
 	
 - **/database** : 

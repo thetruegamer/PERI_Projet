@@ -14,7 +14,7 @@ LDFLAGS=-L$(LIB) -lrf24 -lsqlite3
 all: $(APP).x
 
 $(APP).x: $(APP).cpp
-	g++ -std=c++11 -o $@ -I$(INC) $< -O2 $(LDFLAGS)
+	g++ -std=c++0x -o $@ -I$(INC) $< -O2 $(LDFLAGS)
 
 upload: 
 	scp -P50$(RPI) $(APP).x pi@peri:$(DST)
