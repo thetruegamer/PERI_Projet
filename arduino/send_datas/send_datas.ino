@@ -8,7 +8,7 @@ unsigned long period_in_milliseconds;
 
 // setup the radio communication
 // pipe adress for communicating, we put some random things, just make sure it's the same on the Pi
-byte addresses[][6] = {"0XXXX"};
+byte addresses[][6] = {"0CLBM"};
 
 void setupRadio(void) {
   radio.begin();

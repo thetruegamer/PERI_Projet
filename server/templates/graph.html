@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Highstock Example</title>
+		<title>Graphique projet Péri Levy Masson</title>
         <script src="{{ url_for('static', filename='jquery-1.8.3.min.js') }}"></script>
 		<script type="text/javascript">
 		$(function () {
@@ -14,13 +14,13 @@
                 selected : 1
             },
             title : {
-                text : 'My Sensor'
+                text : 'Capteur de luminosité Arduino'
             },
             series : [{
-                name : 'Value',
+                name : 'Valeur',
                 data : data,
                 tooltip: {
-                    valueDecimals: 2
+                    valueDecimals: 0
                 }
             }]
         });

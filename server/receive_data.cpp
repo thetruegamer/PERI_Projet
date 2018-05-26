@@ -13,15 +13,15 @@ using namespace std;
 
 RF24 radio(15,8); // radio(CE,CS)
 
-byte addresses[][6] = {"0XXXX"};
+byte addresses[][6] = {"0CLBM"};
 
 // value to insert to DB
 int luminosity = 42;
 stringstream ss_lum;
 
 // DB objects
-	sqlite3 *db;
-	sqlite3_stmt *stmt;
+sqlite3 *db;
+sqlite3_stmt *stmt;
 
 string sqlstatement;
 
@@ -40,6 +40,7 @@ void loop() {
 		radio.read(&luminosity, sizeof(luminosity));
 	}
 
+    // conversion from int to string
 	ss_lum << luminosity;
  	string str_lum = ss_lum.str();
 
