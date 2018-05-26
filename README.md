@@ -32,7 +32,7 @@ Architecture du code : on lit la valeur sur le canal radio, puis on exécute une
 	- **server.py :** extrait les données de la DB puis les envoie sur le serveur web.
 Codé à l'aide de flask : on se sert de l'api sqlite3 pour sélectionner toutes les entrées de la base (on pourrait modifier la requête pour ne prendre que les X dernières si l'on voulait) puis les afficher. Ces données sont ensuite communiquées au template "graph" qui les affiche.
 
-	- **templates/graph.html** : fichiers HTML pour Flask ** adresse codée en dur à modifier si necéssaire** JS / HTML tirés de https://www.fontenay-ronan.fr/dynamic-charts-with-highcharts-sqlite-and-python/
+	- **templates/graph.html** : fichiers HTML pour Flask **adresse codée en dur à modifier si necéssaire** JS / HTML tirés de https://www.fontenay-ronan.fr/dynamic-charts-with-highcharts-sqlite-and-python/
 	
 	- **static/** : fichiers js pour l'affichage graphique
 	
